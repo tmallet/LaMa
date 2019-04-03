@@ -31,7 +31,7 @@ export default {
 
 .lm-workspace .lm-container {
   position: relative;
-  width: 915px;
+  width: 910px;
   min-height: 3000px;
   height: 100%;
   margin: auto;

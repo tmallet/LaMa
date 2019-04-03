@@ -1,7 +1,7 @@
 <template>
   <div class="lm-layout">
-    <WorkspaceRow/>
-    <WorkspaceNewRow/>
+    <WorkspaceRow v-for="(row, index) in rows" :key="index" v-bind:cols="row.cols"/>
+    <WorkspaceNewRow @click.native="addRow"/>
   </div>
 </template>
 
@@ -11,7 +11,19 @@ import WorkspaceRow from "./WorkspaceRow";
 
 export default {
   name: "WorkspaceLayout",
-  components: { WorkspaceNewRow, WorkspaceRow }
+  components: { WorkspaceNewRow, WorkspaceRow },
+  data() {
+    return {
+      rows: []
+    };
+  },
+  methods: {
+    addRow() {
+      this.rows.push({
+        cols: []
+      });
+    }
+  }
 };
 </script>
 
@@ -20,6 +32,6 @@ export default {
   position: absolute;
   top: 10px;
   left: 0;
-  min-width: 915px;
+  min-width: 910px;
 }
 </style>

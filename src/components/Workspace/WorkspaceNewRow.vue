@@ -10,8 +10,8 @@ export default {
 
 <style>
 .lm-workspace .lm-layout .lm-new-row {
-  width: 885px;
-  height: 185px;
+  width: 880px;
+  height: 200px;
   margin-left: 15px;
 
   cursor: pointer;
