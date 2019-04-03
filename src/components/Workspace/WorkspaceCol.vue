@@ -1,10 +1,31 @@
 <template>
-  <div class="lm-col"></div>
+  <div class="lm-col" @mousedown="mousedown">{{isResizing}}</div>
 </template>
 
 <script>
 export default {
-  name: "WorkspaceCol"
+  name: "WorkspaceCol",
+  data() {
+    return {
+      isResizing: null
+    };
+  },
+  mounted() {
+    document.addEventListener("mouseup", () => {
+      this.isResizing = false;
+    });
+    document.addEventListener("mousemove", e => {
+      if (this.isResizing) {
+        console.log(e);
+      }
+    });
+  },
+  methods: {
+    mousedown(e) {
+      e.preventDefault();
+      this.isResizing = true;
+    }
+  }
 };
 </script>
 
@@ -16,5 +37,7 @@ export default {
   width: 65px;
 
   background-color: blueviolet;
+
+  cursor: col-resize;
 }
 </style>
