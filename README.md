@@ -1,4 +1,4 @@
-# lama
+# LaMa
 
 ## Project setup
 ```
