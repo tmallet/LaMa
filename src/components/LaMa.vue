@@ -8,7 +8,7 @@
 
 <script>
 import SizeNavigator from "./SizeNavigator";
-import Workspace from "./Workspace";
+import Workspace from "./Workspace/Workspace";
 import Settings from "./Settings";
 
 export default {
