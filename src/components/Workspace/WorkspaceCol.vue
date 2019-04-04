@@ -1,10 +1,19 @@
 <template>
-  <div class="lm-col" @mousedown.left="mousedown" v-bind:style="{width: width+'px'}"></div>
+  <div
+    :class="'lm-col' + (isResizing ? '' : ' easing')"
+    @mousedown.left="mousedown"
+    v-bind:style="{width: width+'px'}"
+  >
+    <div class="lm-remove-col" @click.left="removeCol">
+      <font-awesome-icon icon="times"/>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   name: "WorkspaceCol",
+  props: ["col"],
   data() {
     return {
       isResizing: null,
@@ -51,6 +60,9 @@ export default {
           this.width = this.prevWidth + e.x - this.initialX;
         }
       }
+    },
+    removeCol() {
+      this.$emit("removed", this.col.id);
     }
   }
 };
@@ -58,6 +70,8 @@ export default {
 
 <style>
 .lm-workspace .lm-layout .lm-row .lm-col {
+  position: relative;
+
   height: 150px;
   margin-left: 10px;
   margin-bottom: 15px;
@@ -65,5 +79,22 @@ export default {
   background-color: blueviolet;
 
   cursor: col-resize;
+}
+
+.lm-workspace .lm-layout .lm-row .lm-col .lm-remove-col {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 25px;
+  height: 25px;
+
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.lm-workspace .lm-layout .lm-row .lm-col.easing {
+  transition: width 500ms ease;
 }
 </style>

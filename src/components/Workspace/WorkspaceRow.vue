@@ -1,6 +1,6 @@
 <template>
   <div class="lm-row row">
-    <WorkspaceCol v-for="(col, index) in cols" :key="index"/>
+    <WorkspaceCol v-for="col in cols" :key="col.id" :col="col" @removed="removeCol"/>
     <WorkspaceNewCol @click.native="addCol"/>
   </div>
 </template>
@@ -13,9 +13,18 @@ export default {
   name: "WorkspaceRow",
   props: ["cols"],
   components: { WorkspaceNewCol, WorkspaceCol },
+  data() {
+    return {
+      lastIndex: 0
+    };
+  },
   methods: {
     addCol() {
-      this.cols.push({});
+      this.cols.push({ id: this.lastIndex });
+      this.lastIndex++;
+    },
+    removeCol(index) {
+      this.cols = this.cols.filter(col => col.id !== index);
     }
   }
 };
