@@ -24,7 +24,7 @@ export default {
       this.lastIndex++;
     },
     removeCol(index) {
-      this.cols = this.cols.filter(col => col.id !== index);
+      this.$emit("update:cols", [...this.cols.filter(col => col.id !== index)]);
     }
   }
 };

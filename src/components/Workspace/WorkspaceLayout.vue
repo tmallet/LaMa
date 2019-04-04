@@ -1,6 +1,6 @@
 <template>
   <div class="lm-layout">
-    <WorkspaceRow v-for="(row, index) in rows" :key="index" v-bind:cols="row.cols"/>
+    <WorkspaceRow v-for="(row, index) in rows" :key="index" :cols.sync="row.cols"/>
     <WorkspaceNewRow @click.native="addRow"/>
   </div>
 </template>
