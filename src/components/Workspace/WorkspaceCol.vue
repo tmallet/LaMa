@@ -23,7 +23,6 @@ export default {
     };
   },
   mounted() {
-    console.log(this.col.id + " mounted");
     document.addEventListener("mouseup", this.mouseup);
     document.addEventListener("mousemove", this.mousemove);
   },
@@ -74,6 +73,7 @@ export default {
   position: relative;
 
   height: 150px;
+  max-width: 890px;
   margin-left: 10px;
   margin-bottom: 15px;
 
