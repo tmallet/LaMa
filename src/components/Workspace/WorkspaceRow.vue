@@ -1,5 +1,8 @@
 <template>
   <div class="lm-row row">
+    <div class="lm-remove-row" @click="removeRow">
+      <font-awesome-icon icon="times"/>
+    </div>
     <WorkspaceCol v-for="col in cols" :key="col.id" :col="col" @removed="removeCol"/>
     <WorkspaceNewCol @click.native="addCol"/>
   </div>
@@ -11,20 +14,23 @@ import WorkspaceCol from "./WorkspaceCol";
 
 export default {
   name: "WorkspaceRow",
-  props: ["cols"],
+  props: ["cols", "rowId"],
   components: { WorkspaceNewCol, WorkspaceCol },
   data() {
     return {
-      lastIndex: 0
+      lastIndex: -1
     };
   },
   methods: {
     addCol() {
-      this.cols.push({ id: this.lastIndex });
+      this.cols.push({ id: this.lastIndex + 1 });
       this.lastIndex++;
     },
     removeCol(index) {
       this.$emit("update:cols", [...this.cols.filter(col => col.id !== index)]);
+    },
+    removeRow() {
+      this.$emit("removed", this.rowId);
     }
   }
 };
@@ -32,6 +38,8 @@ export default {
 
 <style>
 .lm-workspace .lm-layout .lm-row {
+  position: relative;
+
   width: 910px;
   margin: 0;
   margin-bottom: 10px;
@@ -39,5 +47,18 @@ export default {
 
   background-color: rgba(241, 15, 211, 0.4);
   border-radius: 5px;
+}
+
+.lm-workspace .lm-layout .lm-row .lm-remove-row {
+  position: absolute;
+  top: 0;
+  right: 10px;
+
+  width: 25px;
+  height: 25px;
+
+  text-align: center;
+
+  cursor: pointer;
 }
 </style>

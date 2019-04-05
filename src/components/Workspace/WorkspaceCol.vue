@@ -23,6 +23,7 @@ export default {
     };
   },
   mounted() {
+    console.log(this.col.id + " mounted");
     document.addEventListener("mouseup", this.mouseup);
     document.addEventListener("mousemove", this.mousemove);
   },

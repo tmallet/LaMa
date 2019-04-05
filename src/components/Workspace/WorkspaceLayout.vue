@@ -1,6 +1,12 @@
 <template>
   <div class="lm-layout">
-    <WorkspaceRow v-for="(row, index) in rows" :key="index" :cols.sync="row.cols"/>
+    <WorkspaceRow
+      v-for="row in rows"
+      :key="row.id"
+      :cols.sync="row.cols"
+      :rowId="row.id"
+      @removed="removeRow"
+    />
     <WorkspaceNewRow @click.native="addRow"/>
   </div>
 </template>
@@ -14,14 +20,20 @@ export default {
   components: { WorkspaceNewRow, WorkspaceRow },
   data() {
     return {
+      lastIndex: -1,
       rows: []
     };
   },
   methods: {
     addRow() {
       this.rows.push({
+        id: this.lastIndex + 1,
         cols: []
       });
+      this.lastIndex++;
+    },
+    removeRow(rowId) {
+      this.rows = this.rows.filter(row => row.id !== rowId);
     }
   }
 };
