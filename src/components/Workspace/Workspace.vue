@@ -13,7 +13,8 @@ import WorkspaceLayout from "./WorkspaceLayout";
 
 export default {
   name: "Workspace",
-  components: { WorkspaceColumns, WorkspaceLayout }
+  components: { WorkspaceColumns, WorkspaceLayout },
+  props: ["size"]
 };
 </script>
 

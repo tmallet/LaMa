@@ -1,19 +1,24 @@
 <template>
   <div id="lama">
-    <SizeNavigator/>
-    <Workspace/>
+    <SizeNavigator :size.sync="size"/>
+    <Workspace :size="size"/>
     <Settings/>
   </div>
 </template>
 
 <script>
-import SizeNavigator from "./SizeNavigator";
+import SizeNavigator from "./SizeNavigator/SizeNavigator";
 import Workspace from "./Workspace/Workspace";
 import Settings from "./Settings";
 
 export default {
   name: "LaMa",
-  components: { SizeNavigator, Workspace, Settings }
+  components: { SizeNavigator, Workspace, Settings },
+  data() {
+    return {
+      size: "md"
+    };
+  }
 };
 </script>
 
