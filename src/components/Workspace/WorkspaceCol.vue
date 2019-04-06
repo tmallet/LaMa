@@ -39,12 +39,10 @@ export default {
     mouseup() {
       this.isResizing = false;
       this.initialX = null;
-      if (this.width > 0 && this.width < 107.5) {
-        this.width = 65;
-      } else if (this.width > 890) {
+      if (this.width > 890) {
         this.width = 890;
       } else {
-        for (let i = 0; i < 12; i++) {
+        for (let i = -1; i < 12; i++) {
           if (this.width >= 107.5 + i * 75 && this.width < 182.5 + i * 75) {
             this.width = 140 + i * 75;
             break;
@@ -55,10 +53,7 @@ export default {
     },
     mousemove(e) {
       if (this.isResizing) {
-        const newWidth = this.prevWidth + e.x - this.initialX;
-        if (newWidth >= 65) {
-          this.width = this.prevWidth + e.x - this.initialX;
-        }
+        this.width = this.prevWidth + e.x - this.initialX;
       }
     },
     removeCol() {
@@ -73,6 +68,7 @@ export default {
   position: relative;
 
   height: 150px;
+  min-width: 65px;
   max-width: 890px;
   margin-left: 10px;
   margin-bottom: 15px;
