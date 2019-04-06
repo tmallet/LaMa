@@ -4,6 +4,7 @@
     @mousedown.left="mousedown"
     v-bind:style="{width: width+'px'}"
   >
+    {{col.classes}}
     <div class="lm-remove-col" @click.left="removeCol">
       <font-awesome-icon icon="times"/>
     </div>
@@ -11,16 +12,25 @@
 </template>
 
 <script>
+const sizes = ["xs", "sm", "md", "lg"];
 export default {
   name: "WorkspaceCol",
-  props: ["col"],
+  props: ["col", "size"],
   data() {
     return {
       isResizing: null,
       initialX: null,
-      width: 65,
-      prevWidth: 65
+      width: null,
+      prevWidth: null
     };
+  },
+  created() {
+    const currentSizeIndex = sizes.indexOf(this.size);
+    sizes.forEach((size, index) => {
+      if (index < currentSizeIndex) this.col.classes[size] = 12;
+      else this.col.classes[size] = 1;
+    });
+    this.width = 140 + (this.col.classes[this.size] - 2) * 75;
   },
   mounted() {
     document.addEventListener("mouseup", this.mouseup);
@@ -30,6 +40,13 @@ export default {
     document.removeEventListener("mouseup", this.mouseup);
     document.removeEventListener("mousemove", this.mousemove);
   },
+  watch: {
+    size(next) {
+      const sizeValue = this.col.classes[next];
+      this.width = 140 + (sizeValue - 2) * 75;
+      this.prevWidth = this.width;
+    }
+  },
   methods: {
     mousedown(e) {
       e.preventDefault();
@@ -37,27 +54,42 @@ export default {
       this.initialX = e.x;
     },
     mouseup() {
-      this.isResizing = false;
-      this.initialX = null;
-      if (this.width > 890) {
-        this.width = 890;
-      } else {
-        for (let i = -1; i < 12; i++) {
-          if (this.width >= 107.5 + i * 75 && this.width < 182.5 + i * 75) {
-            this.width = 140 + i * 75;
-            break;
+      // TODO : clean this
+      if (this.isResizing) {
+        if (this.width > 890) {
+          this.width = 890;
+          this.setClasses(12);
+        } else {
+          for (let i = 0; i < 12; i++) {
+            if (
+              this.width >= 107.5 + (i - 1) * 75 &&
+              this.width < 182.5 + (i - 1) * 75
+            ) {
+              this.width = 140 + (i - 1) * 75;
+              this.setClasses(i + 1);
+              break;
+            }
           }
         }
+        this.initialX = null;
+        this.isResizing = false;
+        this.prevWidth = this.width;
       }
-      this.prevWidth = this.width;
     },
     mousemove(e) {
-      if (this.isResizing) {
-        this.width = this.prevWidth + e.x - this.initialX;
-      }
+      if (this.isResizing) this.width = this.prevWidth + e.x - this.initialX;
     },
     removeCol() {
       this.$emit("removed", this.col.id);
+    },
+    setClasses(nbCol) {
+      const prevNbCol = this.col.classes[this.size];
+      const newSizes = sizes.slice(sizes.indexOf(this.size) + 1, sizes.length);
+      for (const size of newSizes) {
+        if (this.col.classes[size] !== prevNbCol) break;
+        this.col.classes[size] = nbCol;
+      }
+      this.col.classes[this.size] = nbCol;
     }
   }
 };

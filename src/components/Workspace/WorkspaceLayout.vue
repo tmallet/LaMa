@@ -5,6 +5,7 @@
       :key="row.id"
       :cols.sync="row.cols"
       :rowId="row.id"
+      :size="size"
       @removed="removeRow"
     />
     <WorkspaceNewRow @click.native="addRow"/>
@@ -18,6 +19,7 @@ import WorkspaceRow from "./WorkspaceRow";
 export default {
   name: "WorkspaceLayout",
   components: { WorkspaceNewRow, WorkspaceRow },
+  props: ["size"],
   data() {
     return {
       lastIndex: -1,

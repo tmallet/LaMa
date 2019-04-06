@@ -2,7 +2,7 @@
   <div class="lm-workspace">
     <div class="lm-container">
       <WorkspaceColumns/>
-      <WorkspaceLayout/>
+      <WorkspaceLayout :size="size"/>
     </div>
   </div>
 </template>

@@ -3,7 +3,7 @@
     <div class="lm-remove-row" @click="removeRow">
       <font-awesome-icon icon="times"/>
     </div>
-    <WorkspaceCol v-for="col in cols" :key="col.id" :col="col" @removed="removeCol"/>
+    <WorkspaceCol v-for="col in cols" :key="col.id" :col="col" @removed="removeCol" :size="size"/>
     <WorkspaceNewCol @click.native="addCol"/>
   </div>
 </template>
@@ -14,7 +14,7 @@ import WorkspaceCol from "./WorkspaceCol";
 
 export default {
   name: "WorkspaceRow",
-  props: ["cols", "rowId"],
+  props: ["cols", "rowId", "size"],
   components: { WorkspaceNewCol, WorkspaceCol },
   data() {
     return {
@@ -23,7 +23,15 @@ export default {
   },
   methods: {
     addCol() {
-      this.cols.push({ id: this.lastIndex + 1 });
+      this.cols.push({
+        id: this.lastIndex + 1,
+        classes: {
+          xs: null,
+          sm: null,
+          md: null,
+          lg: null
+        }
+      });
       this.lastIndex++;
     },
     removeCol(index) {
