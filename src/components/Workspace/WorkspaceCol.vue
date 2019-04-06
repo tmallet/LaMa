@@ -1,12 +1,18 @@
 <template>
-  <div
-    :class="'lm-col' + (isResizing ? '' : ' easing')"
-    @mousedown.left="mousedown"
-    v-bind:style="{width: width+'px'}"
-  >
-    {{col.classes}}
-    <div class="lm-remove-col" @click.left="removeCol">
-      <font-awesome-icon icon="times"/>
+  <div>
+    <div
+      :class="'lm-col-offset' + (isDragging ? '' : ' easing')"
+      :style="{width: offsetWidth + 'px', maxWidth: (890-prevWidth) + 'px'}"
+    />
+    <div
+      :class="'lm-col' + (isResizing ? '' : ' easing')"
+      @mousedown.left="mousedown"
+      :style="{width: width + 'px', maxWidth: (890-prevOffsetWidth) + 'px'}"
+    >
+      <div class="lm-remove-col" @click.left="removeCol">
+        <font-awesome-icon icon="times"/>
+      </div>
+      <div v-if="size !== 'xs'" class="lm-offset" @mousedown.left="drag"></div>
     </div>
   </div>
 </template>
@@ -18,10 +24,13 @@ export default {
   props: ["col", "size"],
   data() {
     return {
-      isResizing: null,
+      isResizing: false,
+      isDragging: false,
       initialX: null,
-      width: null,
-      prevWidth: null
+      width: 65,
+      offsetWidth: 0,
+      prevWidth: null,
+      prevOffsetWidth: 0
     };
   },
   created() {
@@ -50,15 +59,21 @@ export default {
   methods: {
     mousedown(e) {
       e.preventDefault();
-      this.isResizing = true;
-      this.initialX = e.x;
+      if (!e.target.classList.contains("lm-offset")) {
+        this.isResizing = true;
+        this.initialX = e.x;
+      }
     },
     mouseup() {
       // TODO : clean this
       if (this.isResizing) {
-        if (this.width > 890) {
+        if (890 - this.prevOffsetWidth < this.width) {
+          this.width = 890 - this.offsetWidth;
+        } else if (this.width > 890) {
           this.width = 890;
           this.setClasses(12);
+        } else if (this.width < 65) {
+          this.width = 65;
         } else {
           for (let i = 0; i < 12; i++) {
             if (
@@ -74,10 +89,39 @@ export default {
         this.initialX = null;
         this.isResizing = false;
         this.prevWidth = this.width;
+      } else if (this.isDragging) {
+        if (this.offsetWidth > 890 - this.width) {
+          this.offsetWidth = 890 - this.width;
+        } else if (this.offsetWidth < 32.5) {
+          this.offsetWidth = 0;
+        } else {
+          for (let i = 0; i < 12; i++) {
+            if (
+              this.offsetWidth >= 107.5 + (i - 1) * 75 &&
+              this.offsetWidth < 182.5 + (i - 1) * 75
+            ) {
+              this.offsetWidth = 150 + (i - 1) * 75;
+              break;
+            }
+          }
+        }
+        this.initialX = null;
+        this.isDragging = false;
+        this.prevOffsetWidth = this.offsetWidth;
       }
     },
     mousemove(e) {
-      if (this.isResizing) this.width = this.prevWidth + e.x - this.initialX;
+      if (this.isResizing) {
+        const newWidth = this.prevWidth + e.x - this.initialX;
+        this.width = newWidth;
+      } else if (this.isDragging) {
+        this.offsetWidth = this.prevOffsetWidth + e.x - this.initialX;
+      }
+    },
+    drag(e) {
+      e.preventDefault();
+      this.isDragging = true;
+      this.initialX = e.x;
     },
     removeCol() {
       this.$emit("removed", this.col.id);
@@ -97,12 +141,11 @@ export default {
 
 <style>
 .lm-workspace .lm-layout .lm-row .lm-col {
+  display: inline-block;
   position: relative;
 
   height: 150px;
   min-width: 65px;
-  max-width: 890px;
-  margin-left: 10px;
   margin-bottom: 15px;
 
   background-color: blueviolet;
@@ -125,5 +168,32 @@ export default {
 
 .lm-workspace .lm-layout .lm-row .lm-col.easing {
   transition: width 500ms ease;
+}
+
+.lm-workspace .lm-layout .lm-row .lm-col-offset.easing {
+  transition: width 500ms ease;
+}
+
+.lm-workspace .lm-layout .lm-row .lm-col .lm-offset {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 10px;
+
+  cursor: -webkit-grab;
+
+  background-color: black;
+}
+
+.lm-workspace .lm-layout .lm-row .lm-col-offset {
+  display: inline-block;
+  position: relative;
+
+  height: 150px;
+  margin-left: 10px;
+  margin-bottom: 15px;
+
+  background-color: rgba(137, 43, 226, 0.329);
 }
 </style>
