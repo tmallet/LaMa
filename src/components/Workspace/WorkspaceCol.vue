@@ -69,8 +69,6 @@ export default {
       if (this.isResizing) {
         if (890 - this.prevOffsetWidth < this.width) {
           this.width = 890 - this.offsetWidth;
-        } else if (this.width > 890) {
-          this.width = 890;
           this.setClasses(12);
         } else if (this.width < 65) {
           this.width = 65;
