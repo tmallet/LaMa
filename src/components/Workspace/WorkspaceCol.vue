@@ -101,6 +101,7 @@ export default {
           this.setOffsets(12 - this.col.sizes[this.size]);
         } else if (this.offsetWidth < 32.5) {
           this.offsetWidth = 0;
+          this.setOffsets(0);
         } else {
           for (let i = 0; i < 12; i++) {
             if (
