@@ -1,7 +1,7 @@
 <template>
   <div id="lama">
-    <SizeNavigator :size.sync="size"/>
-    <Workspace :size="size"/>
+    <SizeNavigator :size.sync="size" :rows="rows"/>
+    <Workspace :size="size" @updated="workspaceUpdate"/>
     <Settings/>
   </div>
 </template>
@@ -16,8 +16,14 @@ export default {
   components: { SizeNavigator, Workspace, Settings },
   data() {
     return {
-      size: "md"
+      size: "md",
+      rows: []
     };
+  },
+  methods: {
+    workspaceUpdate(rows) {
+      this.rows = [...rows];
+    }
   }
 };
 </script>

@@ -6,17 +6,23 @@
         <font-awesome-icon :icon="iconName"/>
       </span>
     </div>
+    <SizeContainer :rows="rows" :size="size"/>
   </div>
 </template>
 
 <script>
+import SizeContainer from "./SizeContainer";
+
 export default {
-  props: ["sizeName", "iconName", "active"]
+  props: ["sizeName", "iconName", "active", "rows", "size"],
+  components: { SizeContainer }
 };
 </script>
 
 <style>
 .lm-size-navigator .lm-size {
+  position: relative;
+
   height: 25%;
   width: 100%;
 

@@ -2,7 +2,7 @@
   <div class="lm-workspace">
     <div class="lm-container">
       <WorkspaceColumns/>
-      <WorkspaceLayout :size="size"/>
+      <WorkspaceLayout :size="size" @updated="updated"/>
     </div>
   </div>
 </template>
@@ -14,7 +14,12 @@ import WorkspaceLayout from "./WorkspaceLayout";
 export default {
   name: "Workspace",
   components: { WorkspaceColumns, WorkspaceLayout },
-  props: ["size"]
+  props: ["size"],
+  methods: {
+    updated(rows) {
+      this.$emit("updated", rows);
+    }
+  }
 };
 </script>
 

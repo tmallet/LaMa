@@ -80,6 +80,7 @@ export default {
           this.setSizes(12);
         } else if (this.width < 65) {
           this.width = 65;
+          this.setSizes(1);
         } else {
           for (let i = 0; i < 12; i++) {
             if (

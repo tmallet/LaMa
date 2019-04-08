@@ -26,6 +26,14 @@ export default {
       rows: []
     };
   },
+  watch: {
+    rows: {
+      deep: true,
+      handler: function() {
+        this.$emit("updated", this.rows);
+      }
+    }
+  },
   methods: {
     addRow() {
       this.rows.push({
