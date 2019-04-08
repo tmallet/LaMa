@@ -29,7 +29,7 @@ export default {
       initialX: null,
       width: 65,
       offsetWidth: 0,
-      prevWidth: null,
+      prevWidth: 65,
       prevOffsetWidth: 0
     };
   },
