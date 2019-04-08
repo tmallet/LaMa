@@ -19,6 +19,7 @@
 
 <script>
 const sizes = ["xs", "sm", "md", "lg"];
+const offsets = ["sm", "md", "lg"];
 export default {
   name: "WorkspaceCol",
   props: ["col", "size"],
@@ -36,10 +37,13 @@ export default {
   created() {
     const currentSizeIndex = sizes.indexOf(this.size);
     sizes.forEach((size, index) => {
-      if (index < currentSizeIndex) this.col.classes[size] = 12;
-      else this.col.classes[size] = 1;
+      if (index < currentSizeIndex) this.col.sizes[size] = 12;
+      else this.col.sizes[size] = 1;
     });
-    this.width = 140 + (this.col.classes[this.size] - 2) * 75;
+    this.width = 140 + (this.col.sizes[this.size] - 2) * 75;
+    offsets.forEach(offset => {
+      this.col.offsets[offset] = 0;
+    });
   },
   mounted() {
     document.addEventListener("mouseup", this.mouseup);
@@ -51,7 +55,11 @@ export default {
   },
   watch: {
     size(next) {
-      const sizeValue = this.col.classes[next];
+      const offsetValue = this.col.offsets[next] ? this.col.offsets[next] : 0;
+      this.offsetWidth = 150 + (offsetValue - 2) * 75;
+      this.prevOffsetWidth = this.offsetWidth;
+
+      const sizeValue = this.col.sizes[next];
       this.width = 140 + (sizeValue - 2) * 75;
       this.prevWidth = this.width;
     }
@@ -69,7 +77,7 @@ export default {
       if (this.isResizing) {
         if (890 - this.prevOffsetWidth < this.width) {
           this.width = 890 - this.offsetWidth;
-          this.setClasses(12);
+          this.setSizes(12);
         } else if (this.width < 65) {
           this.width = 65;
         } else {
@@ -79,7 +87,7 @@ export default {
               this.width < 182.5 + (i - 1) * 75
             ) {
               this.width = 140 + (i - 1) * 75;
-              this.setClasses(i + 1);
+              this.setSizes(i + 1);
               break;
             }
           }
@@ -90,6 +98,7 @@ export default {
       } else if (this.isDragging) {
         if (this.offsetWidth > 890 - this.width) {
           this.offsetWidth = 890 - this.width;
+          this.setOffsets(12 - this.col.sizes[this.size]);
         } else if (this.offsetWidth < 32.5) {
           this.offsetWidth = 0;
         } else {
@@ -99,6 +108,7 @@ export default {
               this.offsetWidth < 182.5 + (i - 1) * 75
             ) {
               this.offsetWidth = 150 + (i - 1) * 75;
+              this.setOffsets(i + 1);
               break;
             }
           }
@@ -124,14 +134,26 @@ export default {
     removeCol() {
       this.$emit("removed", this.col.id);
     },
-    setClasses(nbCol) {
-      const prevNbCol = this.col.classes[this.size];
+    setSizes(nbCol) {
+      const prevNbCol = this.col.sizes[this.size];
       const newSizes = sizes.slice(sizes.indexOf(this.size) + 1, sizes.length);
       for (const size of newSizes) {
-        if (this.col.classes[size] !== prevNbCol) break;
-        this.col.classes[size] = nbCol;
+        if (this.col.sizes[size] !== prevNbCol) break;
+        this.col.sizes[size] = nbCol;
       }
-      this.col.classes[this.size] = nbCol;
+      this.col.sizes[this.size] = nbCol;
+    },
+    setOffsets(nbCol) {
+      const prevNbCol = this.col.offsets[this.size];
+      const newSizes = offsets.slice(
+        offsets.indexOf(this.size) + 1,
+        offsets.length
+      );
+      for (const size of newSizes) {
+        if (this.col.offsets[size] !== prevNbCol) break;
+        this.col.offsets[size] = nbCol;
+      }
+      this.col.offsets[this.size] = nbCol;
     }
   }
 };
