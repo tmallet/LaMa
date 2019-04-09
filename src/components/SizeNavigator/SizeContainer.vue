@@ -1,20 +1,35 @@
 <template>
   <div class="lm-size-container">
-    <div v-for="row in rows" :key="row.id" class>
-      <div
-        v-for="col in row.cols"
-        :key="col.id"
-        class="lm-size-col-preview"
-        :style="{width: col.sizes[size]/12*100+'%'}"
-      ></div>
+    <div class="lm-size-preview-rows" :style="{width: rowWidth + 'px'}">
+      <div v-for="row in rows" :key="row.id" class="lm-size-preview-row">
+        <SizeColPreview
+          v-for="col in row.cols"
+          :key="col.id"
+          :col="col"
+          :size="size"
+          :rowWidth="rowWidth"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import SizeColPreview from "./SizeColPreview";
+
 export default {
   name: "SizeContainer",
-  props: ["rows", "size"]
+  props: ["rows", "size"],
+  components: { SizeColPreview },
+  computed: {
+    rowWidth() {
+      if (this.size === "xs") return 50.4;
+      if (this.size === "sm") return 79.2;
+      if (this.size === "md") return 115.2;
+      if (this.size === "lg") return 144;
+      return 0;
+    }
+  }
 };
 </script>
 
@@ -25,12 +40,23 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
+
+  padding: 0 15px;
 }
 
-.lm-size-navigator .lm-size .lm-size-container .lm-size-col-preview {
-  display: inline-block;
-  background-color: red;
-  height: 10px;
-  border-right: 1px solid black;
+.lm-size-navigator .lm-size .lm-size-container .lm-size-preview-rows {
+  padding-top: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+}
+
+.lm-size-navigator
+  .lm-size
+  .lm-size-container
+  .lm-size-preview-rows
+  .lm-size-preview-row {
+  overflow: hidden;
+  clear: both;
 }
 </style>
