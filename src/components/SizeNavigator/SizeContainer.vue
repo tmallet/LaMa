@@ -32,17 +32,17 @@ export default {
 </script>
 
 <style>
-.lm-size-navigator .lm-size .lm-size-container {
+.lm-size-container {
   position: absolute;
   top: 24px;
   bottom: 0;
   left: 0;
   right: 0;
-
   padding: 0 15px;
+  overflow-y: auto;
 }
 
-.lm-size-navigator .lm-size .lm-size-container .lm-size-preview-rows {
+.lm-size-preview-rows {
   padding-top: 8px;
   margin-left: auto;
   margin-right: auto;

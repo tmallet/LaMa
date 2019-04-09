@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style>
-.lm-size-navigator .lm-size .lm-size-container .lm-size-col-preview {
+.lm-size-col-preview {
   background-color: red;
 
   float: left;
@@ -33,25 +33,17 @@ export default {
   margin-bottom: 3px;
 }
 
-.lm-size-navigator .lm-size .lm-size-container .lm-size-col-preview:last-child {
+.lm-size-col-preview:last-child {
   margin-right: 0;
 }
 
-.lm-size-navigator
-  .lm-size
-  .lm-size-container
-  .lm-size-col-preview
-  .lm-size-col-preview-width {
+.lm-size-col-preview-width {
   display: inline-block;
   height: 20px;
   transition: width 500ms ease;
 }
 
-.lm-size-navigator
-  .lm-size
-  .lm-size-container
-  .lm-size-col-preview
-  .lm-size-col-preview-offset {
+.lm-size-col-preview-offset {
   display: inline-block;
   height: 20px;
   transition: width 500ms ease;

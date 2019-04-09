@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style>
-.lm-size-navigator .lm-size {
+.lm-size {
   position: relative;
 
   height: 25%;
@@ -29,15 +29,15 @@ export default {
   cursor: pointer;
 }
 
-.lm-size-navigator .lm-size.active {
+.lm-size.active {
   background-color: greenyellow;
 }
 
-.lm-size-navigator .lm-size-header {
+.lm-size-header {
   padding: 0 15px;
 }
 
-.lm-size-navigator .lg-size-icon {
+.lg-size-icon {
   float: right;
 }
 </style>

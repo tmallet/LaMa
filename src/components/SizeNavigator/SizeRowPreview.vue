@@ -15,11 +15,7 @@ export default {
 </script>
 
 <style>
-.lm-size-navigator
-  .lm-size
-  .lm-size-container
-  .lm-size-preview-rows
-  .lm-size-preview-row {
+.lm-size-preview-row {
   overflow: hidden;
   clear: both;
 }
