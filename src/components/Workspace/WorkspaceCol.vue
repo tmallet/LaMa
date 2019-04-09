@@ -2,6 +2,7 @@
   <div>
     <div
       :class="'lm-col-offset' + (isDragging ? '' : ' easing')"
+      @mousedown.left="drag"
       :style="{width: offsetWidth + 'px', maxWidth: (890-prevWidth) + 'px'}"
     />
     <div
@@ -215,6 +216,8 @@ export default {
   height: 150px;
   margin-left: 10px;
   margin-bottom: 15px;
+
+  cursor: -webkit-grab;
 
   background-color: rgba(137, 43, 226, 0.329);
 }
