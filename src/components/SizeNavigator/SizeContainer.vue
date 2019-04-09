@@ -25,6 +25,7 @@ export default {
       if (this.size === "sm") return 79.2;
       if (this.size === "md") return 115.2;
       if (this.size === "lg") return 144;
+      if (this.size === "xl") return 144;
       return 0;
     }
   }

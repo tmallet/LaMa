@@ -23,7 +23,7 @@ export default {
 .lm-size {
   position: relative;
 
-  height: 25%;
+  height: 20%;
   width: 100%;
 
   cursor: pointer;

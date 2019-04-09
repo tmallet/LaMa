@@ -32,6 +32,14 @@
       :rows="rows"
       size="lg"
     />
+    <SizeOption
+      sizeName="Très grand écran"
+      iconName="tv"
+      :active="size == 'xl'"
+      @click.native="changeSize('xl')"
+      :rows="rows"
+      size="xl"
+    />
   </div>
 </template>
 

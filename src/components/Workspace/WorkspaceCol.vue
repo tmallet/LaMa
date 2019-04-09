@@ -19,8 +19,8 @@
 </template>
 
 <script>
-const sizes = ["xs", "sm", "md", "lg"];
-const offsets = ["sm", "md", "lg"];
+const sizes = ["xs", "sm", "md", "lg", "xl"];
+const offsets = ["sm", "md", "lg", "xl"];
 export default {
   name: "WorkspaceCol",
   props: ["col", "size"],

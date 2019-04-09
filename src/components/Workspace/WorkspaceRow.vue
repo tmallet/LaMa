@@ -29,12 +29,14 @@ export default {
           xs: null,
           sm: null,
           md: null,
-          lg: null
+          lg: null,
+          xl: null
         },
         offsets: {
           sm: null,
           md: null,
-          lg: null
+          lg: null,
+          xl: null
         }
       });
       this.lastIndex++;
