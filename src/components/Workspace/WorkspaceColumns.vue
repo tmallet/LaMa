@@ -22,21 +22,21 @@ export default {
 </script>
 
 <style>
-.lm-workspace .lm-columns {
+.lm-columns {
   height: 100%;
   margin-left: 0px;
   margin-right: 0px;
   padding: 0 10px;
 }
 
-.lm-workspace .lm-columns .col {
+.lm-columns .col {
   height: 100%;
   background-color: whitesmoke;
   margin-right: 10px;
   text-align: center;
 }
 
-.lm-workspace .lm-columns .col:last-child {
+.lm-columns .col:last-child {
   margin-right: 0;
 }
 </style>

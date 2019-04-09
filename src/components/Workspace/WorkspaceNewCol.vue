@@ -9,7 +9,7 @@ export default {
 </script>
 
 <style>
-.lm-workspace .lm-layout .lm-row .lm-new-col {
+.lm-new-col {
   height: 150px;
   margin-left: 20px;
   margin-bottom: 15px;

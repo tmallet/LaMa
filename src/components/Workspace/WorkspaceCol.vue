@@ -162,7 +162,7 @@ export default {
 </script>
 
 <style>
-.lm-workspace .lm-layout .lm-row .lm-col {
+.lm-col {
   display: inline-block;
   position: relative;
 
@@ -175,7 +175,7 @@ export default {
   cursor: col-resize;
 }
 
-.lm-workspace .lm-layout .lm-row .lm-col .lm-remove-col {
+.lm-remove-col {
   position: absolute;
   top: 0;
   right: 0;
@@ -188,15 +188,15 @@ export default {
   cursor: pointer;
 }
 
-.lm-workspace .lm-layout .lm-row .lm-col.easing {
+.lm-col.easing {
   transition: width 500ms ease;
 }
 
-.lm-workspace .lm-layout .lm-row .lm-col-offset.easing {
+.lm-col-offset.easing {
   transition: width 500ms ease;
 }
 
-.lm-workspace .lm-layout .lm-row .lm-col .lm-offset {
+.lm-offset {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -208,7 +208,7 @@ export default {
   background-color: black;
 }
 
-.lm-workspace .lm-layout .lm-row .lm-col-offset {
+.lm-col-offset {
   display: inline-block;
   position: relative;
 

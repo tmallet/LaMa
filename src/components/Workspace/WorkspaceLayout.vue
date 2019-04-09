@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style>
-.lm-workspace .lm-layout {
+.lm-layout {
   position: absolute;
   top: 10px;
   left: 0;

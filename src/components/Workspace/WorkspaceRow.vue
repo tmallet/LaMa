@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style>
-.lm-workspace .lm-layout .lm-row {
+.lm-row {
   position: relative;
 
   width: 910px;
@@ -62,7 +62,7 @@ export default {
   border-radius: 5px;
 }
 
-.lm-workspace .lm-layout .lm-row .lm-remove-row {
+.lm-remove-row {
   position: absolute;
   top: 0;
   right: 10px;

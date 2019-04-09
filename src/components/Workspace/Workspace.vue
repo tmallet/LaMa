@@ -35,7 +35,7 @@ export default {
   background-color: red;
 }
 
-.lm-workspace .lm-container {
+.lm-container {
   position: relative;
   width: 910px;
   min-height: 3000px;
