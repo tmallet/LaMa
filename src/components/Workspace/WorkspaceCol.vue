@@ -145,6 +145,7 @@ export default {
         this.col.sizes[size] = nbCol;
       }
       this.col.sizes[this.size] = nbCol;
+      this.col.classes = this.computeSizeClasses();
     },
     setOffsets(nbCol) {
       const prevNbCol = this.col.offsets[this.size];
@@ -157,6 +158,25 @@ export default {
         this.col.offsets[size] = nbCol;
       }
       this.col.offsets[this.size] = nbCol;
+    },
+    computeSizeClasses() {
+      const sizeClasses = [];
+      if (this.col.sizes["xs"] !== 12) {
+        sizeClasses.push("col-" + this.col.sizes["xs"]);
+      }
+      if (this.col.sizes["sm"] !== this.col.sizes["xs"]) {
+        sizeClasses.push("col-sm-" + this.col.sizes["sm"]);
+      }
+      if (this.col.sizes["md"] !== this.col.sizes["sm"]) {
+        sizeClasses.push("col-md-" + this.col.sizes["md"]);
+      }
+      if (this.col.sizes["lg"] !== this.col.sizes["md"]) {
+        sizeClasses.push("col-lg-" + this.col.sizes["lg"]);
+      }
+      if (this.col.sizes["xl"] !== this.col.sizes["lg"]) {
+        sizeClasses.push("col-xl-" + this.col.sizes["xl"]);
+      }
+      return sizeClasses.join(" ");
     }
   }
 };
