@@ -145,7 +145,7 @@ export default {
         this.col.sizes[size] = nbCol;
       }
       this.col.sizes[this.size] = nbCol;
-      this.col.classes = this.computeSizeClasses();
+      this.col.classes = this.computeClasses();
     },
     setOffsets(nbCol) {
       const prevNbCol = this.col.offsets[this.size];
@@ -158,25 +158,40 @@ export default {
         this.col.offsets[size] = nbCol;
       }
       this.col.offsets[this.size] = nbCol;
+      this.col.classes = this.computeClasses();
+    },
+    computeClasses() {
+      return [
+        ...this.computeSizeClasses(),
+        ...this.computeOffsetClasses()
+      ].join(" ");
     },
     computeSizeClasses() {
       const sizeClasses = [];
-      if (this.col.sizes["xs"] !== 12) {
-        sizeClasses.push("col-" + this.col.sizes["xs"]);
-      }
-      if (this.col.sizes["sm"] !== this.col.sizes["xs"]) {
-        sizeClasses.push("col-sm-" + this.col.sizes["sm"]);
-      }
-      if (this.col.sizes["md"] !== this.col.sizes["sm"]) {
-        sizeClasses.push("col-md-" + this.col.sizes["md"]);
-      }
-      if (this.col.sizes["lg"] !== this.col.sizes["md"]) {
-        sizeClasses.push("col-lg-" + this.col.sizes["lg"]);
-      }
-      if (this.col.sizes["xl"] !== this.col.sizes["lg"]) {
-        sizeClasses.push("col-xl-" + this.col.sizes["xl"]);
-      }
-      return sizeClasses.join(" ");
+      const xs = this.col.sizes["xs"];
+      const sm = this.col.sizes["sm"];
+      const md = this.col.sizes["md"];
+      const lg = this.col.sizes["lg"];
+      const xl = this.col.sizes["xl"];
+      if (xs !== 12) sizeClasses.push("col-" + xs);
+      if (sm !== xs) sizeClasses.push("col-sm-" + sm);
+      if (md !== sm) sizeClasses.push("col-md-" + md);
+      if (lg !== md) sizeClasses.push("col-lg-" + lg);
+      if (xl !== lg) sizeClasses.push("col-xl-" + xl);
+      return sizeClasses;
+    },
+    computeOffsetClasses() {
+      const offsetClasses = [];
+      const xs = this.col.offsets["xs"];
+      const sm = this.col.offsets["sm"];
+      const md = this.col.offsets["md"];
+      const lg = this.col.offsets["lg"];
+      const xl = this.col.offsets["xl"];
+      if (sm !== xs && sm !== 0) offsetClasses.push("offset-sm-" + sm);
+      if (md !== sm && md !== 0) offsetClasses.push("offset-md-" + md);
+      if (lg !== md && lg !== 0) offsetClasses.push("offset-lg-" + lg);
+      if (xl !== lg && xl !== 0) offsetClasses.push("offset-xl-" + xl);
+      return offsetClasses;
     }
   }
 };
