@@ -11,7 +11,7 @@
       :style="{width: width + 'px', maxWidth: (890-prevOffsetWidth) + 'px'}"
     >
       <div class="lm-col-header">
-        <input type="text" v-model="customClasses" placeholder="name">
+        <input type="text" v-model="customClasses" placeholder="Custom classes">
       </div>
       <div class="lm-remove-col" @click.left="removeCol">
         <font-awesome-icon icon="times"/>

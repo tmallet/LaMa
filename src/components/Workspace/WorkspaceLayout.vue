@@ -5,6 +5,7 @@
       :key="row.id"
       :cols.sync="row.cols"
       :rowId="row.id"
+      :customClasses.sync="row.customClasses"
       :size="size"
       @removed="removeRow"
     />
@@ -38,6 +39,7 @@ export default {
     addRow() {
       this.rows.push({
         id: this.lastIndex + 1,
+        customClasses: [],
         cols: []
       });
       this.lastIndex++;

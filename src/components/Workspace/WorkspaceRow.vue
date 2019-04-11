@@ -1,5 +1,8 @@
 <template>
   <div class="lm-row row">
+    <div class="lm-col-header">
+      <input type="text" v-model="customClassesData" placeholder="Custom classes">
+    </div>
     <div class="lm-remove-row" @click="removeRow">
       <font-awesome-icon icon="times"/>
     </div>
@@ -14,12 +17,20 @@ import WorkspaceCol from "./WorkspaceCol";
 
 export default {
   name: "WorkspaceRow",
-  props: ["cols", "rowId", "size"],
+  props: ["cols", "rowId", "size", "customClasses"],
   components: { WorkspaceNewCol, WorkspaceCol },
   data() {
     return {
-      lastIndex: -1
+      lastIndex: -1,
+      customClassesData: ""
     };
+  },
+  watch: {
+    customClassesData() {
+      this.$emit("update:customClasses", [
+        ...this.customClassesData.trim().split(" ")
+      ]);
+    }
   },
   methods: {
     addCol() {
@@ -65,6 +76,33 @@ export default {
 
   background-color: rgba(241, 15, 211, 0.4);
   border-radius: 5px;
+}
+
+.lm-row-header {
+  position: absolute;
+
+  top: 0;
+  right: 25px;
+  left: 10px;
+
+  padding: 0 10px;
+}
+
+.lm-row-header input,
+input::placeholder {
+  width: 100%;
+
+  background: none;
+  border: none;
+
+  color: #fff;
+  opacity: 0.5;
+}
+
+.lm-row-header input:focus {
+  outline: none;
+
+  opacity: inherit;
 }
 
 .lm-remove-row {
