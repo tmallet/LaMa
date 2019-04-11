@@ -10,6 +10,9 @@
       @mousedown.left="mousedown"
       :style="{width: width + 'px', maxWidth: (890-prevOffsetWidth) + 'px'}"
     >
+      <div class="lm-col-header">
+        <input type="text" v-model="customClasses" placeholder="name">
+      </div>
       <div class="lm-remove-col" @click.left="removeCol">
         <font-awesome-icon icon="times"/>
       </div>
@@ -32,7 +35,8 @@ export default {
       width: 65,
       offsetWidth: 0,
       prevWidth: 65,
-      prevOffsetWidth: 0
+      prevOffsetWidth: 0,
+      customClasses: ""
     };
   },
   created() {
@@ -63,12 +67,18 @@ export default {
       const sizeValue = this.col.sizes[next];
       this.width = 140 + (sizeValue - 2) * 75;
       this.prevWidth = this.width;
+    },
+    customClasses() {
+      this.col.customClasses = [...this.customClasses.trim().split(" ")];
     }
   },
   methods: {
     mousedown(e) {
-      e.preventDefault();
-      if (!e.target.classList.contains("lm-offset")) {
+      if (
+        !e.target.classList.contains("lm-offset") &&
+        e.target.nodeName !== "INPUT"
+      ) {
+        e.preventDefault();
         this.isResizing = true;
         this.initialX = e.x;
       }
@@ -145,7 +155,7 @@ export default {
         this.col.sizes[size] = nbCol;
       }
       this.col.sizes[this.size] = nbCol;
-      this.col.classes = this.computeClasses();
+      this.col.sizeClasses = this.computeSizeClasses();
     },
     setOffsets(nbCol) {
       const prevNbCol = this.col.offsets[this.size];
@@ -158,13 +168,7 @@ export default {
         this.col.offsets[size] = nbCol;
       }
       this.col.offsets[this.size] = nbCol;
-      this.col.classes = this.computeClasses();
-    },
-    computeClasses() {
-      return [
-        ...this.computeSizeClasses(),
-        ...this.computeOffsetClasses()
-      ].join(" ");
+      this.col.offsetClasses = this.computeOffsetClasses();
     },
     computeSizeClasses() {
       const sizeClasses = [];
@@ -222,6 +226,33 @@ export default {
   text-align: center;
 
   cursor: pointer;
+}
+
+.lm-col-header {
+  position: absolute;
+
+  top: 0;
+  right: 25px;
+  left: 10px;
+
+  padding: 0 10px;
+}
+
+.lm-col-header input,
+input::placeholder {
+  width: 100%;
+
+  background: none;
+  border: none;
+
+  color: #fff;
+  opacity: 0.5;
+}
+
+.lm-col-header input:focus {
+  outline: none;
+
+  opacity: inherit;
 }
 
 .lm-col.easing {

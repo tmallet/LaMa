@@ -25,7 +25,9 @@ export default {
     addCol() {
       this.cols.push({
         id: this.lastIndex + 1,
-        classes: "",
+        sizeClasses: [],
+        offsetClasses: [],
+        customClasses: [],
         sizes: {
           xs: null,
           sm: null,
