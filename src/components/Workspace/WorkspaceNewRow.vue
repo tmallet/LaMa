@@ -11,7 +11,7 @@ export default {
 <style>
 .lm-new-row {
   width: 880px;
-  height: 200px;
+  height: 50px;
   margin-left: 15px;
 
   cursor: pointer;

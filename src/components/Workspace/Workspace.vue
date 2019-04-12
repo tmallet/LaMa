@@ -32,7 +32,7 @@ export default {
 
   overflow-y: auto;
 
-  background-color: red;
+  background-color: #f3f3f4;
 }
 
 .lm-container {

@@ -1,6 +1,6 @@
 <template>
   <div class="lm-row row">
-    <div class="lm-col-header">
+    <div class="lm-row-header">
       <input type="text" v-model="customClassesData" placeholder="Custom classes">
     </div>
     <div class="lm-remove-row" @click="removeRow">
@@ -74,8 +74,10 @@ export default {
   margin-bottom: 10px;
   padding-top: 35px;
 
-  background-color: rgba(241, 15, 211, 0.4);
+  border: 2px solid rgb(42, 149, 134);
   border-radius: 5px;
+
+  background-color: rgba(42, 149, 134, 0.7);
 }
 
 .lm-row-header {
@@ -89,14 +91,14 @@ export default {
 }
 
 .lm-row-header input,
-input::placeholder {
+.lm-row-header input::placeholder {
   width: 100%;
 
   background: none;
   border: none;
 
   color: #fff;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .lm-row-header input:focus {

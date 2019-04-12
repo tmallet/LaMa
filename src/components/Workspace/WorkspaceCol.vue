@@ -211,8 +211,13 @@ export default {
   height: 150px;
   min-width: 65px;
   margin-bottom: 15px;
+  margin-left: -2px;
+  margin-right: 2px;
 
-  background-color: blueviolet;
+  border: 2px solid rgb(51, 151, 252);
+  border-radius: 5px;
+
+  background-color: rgba(51, 151, 252, 0.4);
 
   cursor: col-resize;
 }
@@ -241,14 +246,14 @@ export default {
 }
 
 .lm-col-header input,
-input::placeholder {
+.lm-col-header input::placeholder {
   width: 100%;
 
   background: none;
   border: none;
 
   color: #fff;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .lm-col-header input:focus {
@@ -267,14 +272,15 @@ input::placeholder {
 
 .lm-offset {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 10px;
+  top: 10px;
+  bottom: 10px;
+  left: 2px;
+  width: 8px;
 
   cursor: -webkit-grab;
 
-  background-color: black;
+  background-color: rgba(51, 151, 252, 1);
+  border-radius: 4px;
 }
 
 .lm-col-offset {
@@ -282,11 +288,12 @@ input::placeholder {
   position: relative;
 
   height: 150px;
-  margin-left: 10px;
+  margin-left: 8px;
+  margin-right: 2px;
   margin-bottom: 15px;
 
   cursor: -webkit-grab;
 
-  background-color: rgba(137, 43, 226, 0.329);
+  background-color: rgba(51, 151, 252, 0.2);
 }
 </style>
