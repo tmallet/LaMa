@@ -23,7 +23,9 @@ export default {
 
 <style>
 .lm-columns {
+  position: absolute;
   height: 100%;
+  width: 100%;
   margin-left: 0px;
   margin-right: 0px;
   padding: 0 10px;

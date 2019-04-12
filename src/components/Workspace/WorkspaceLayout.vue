@@ -53,9 +53,10 @@ export default {
 
 <style>
 .lm-layout {
-  position: absolute;
+  position: relative;
   top: 10px;
   left: 0;
   min-width: 910px;
+  padding-bottom: 20px;
 }
 </style>

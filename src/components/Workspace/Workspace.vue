@@ -38,8 +38,6 @@ export default {
 .lm-container {
   position: relative;
   width: 910px;
-  min-height: 10000px;
-  height: 100%;
   margin: auto;
 }
 </style>
