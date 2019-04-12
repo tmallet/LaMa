@@ -183,6 +183,7 @@ export default {
       if (md !== sm) sizeClasses.push("col-md-" + md);
       if (lg !== md) sizeClasses.push("col-lg-" + lg);
       if (xl !== lg) sizeClasses.push("col-xl-" + xl);
+      if (sizeClasses.length === 0) sizeClasses.push("col-12");
       return sizeClasses;
     },
     computeOffsetClasses() {
