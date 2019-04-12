@@ -30,7 +30,7 @@ export default {
   left: 176px;
   right: 400px;
 
-  overflow-y: scroll;
+  overflow-y: auto;
 
   background-color: red;
 }
