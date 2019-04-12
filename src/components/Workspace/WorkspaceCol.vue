@@ -49,6 +49,7 @@ export default {
     offsets.forEach(offset => {
       this.col.offsets[offset] = 0;
     });
+    this.col.sizeClasses = this.computeSizeClasses();
   },
   mounted() {
     document.addEventListener("mouseup", this.mouseup);

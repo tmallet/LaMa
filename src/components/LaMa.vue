@@ -2,7 +2,7 @@
   <div id="lama">
     <SizeNavigator :size.sync="size" :rows="rows"/>
     <Workspace :size="size" @updated="workspaceUpdate"/>
-    <Settings/>
+    <Settings :rows="rows"/>
   </div>
 </template>
 
