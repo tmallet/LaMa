@@ -35,12 +35,15 @@ export default {
 <style>
 .lm-size-container {
   position: absolute;
-  top: 24px;
+  top: 32px;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 0 15px;
   overflow-y: auto;
+
+  background-color: #fff;
+  border-radius: 15px;
 }
 
 .lm-size-preview-rows {

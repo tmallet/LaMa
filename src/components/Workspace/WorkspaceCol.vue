@@ -1,12 +1,12 @@
 <template>
   <div>
     <div
-      :class="'lm-col-offset' + (isDragging ? '' : ' easing')"
+      :class="'lm-col-offset' + (isDragging ? '' : ' easing') + ' lm-col-offset-' + size"
       @mousedown.left="drag"
       :style="{width: offsetWidth + 'px', maxWidth: (890-prevWidth) + 'px'}"
     />
     <div
-      :class="'lm-col' + (isResizing ? '' : ' easing')"
+      :class="'lm-col' + (isResizing ? '' : ' easing') + ' lm-col-' + size"
       @mousedown.left="mousedown"
       :style="{width: width + 'px', maxWidth: (890-prevOffsetWidth) + 'px'}"
     >
@@ -214,12 +214,35 @@ export default {
   margin-left: -2px;
   margin-right: 2px;
 
-  border: 2px solid rgb(51, 151, 252);
+  border: 2px solid;
   border-radius: 5px;
 
-  background-color: rgba(51, 151, 252, 0.4);
-
   cursor: col-resize;
+}
+
+.lm-col-xs {
+  border-color: rgb(149, 65, 42);
+  background-color: rgba(149, 65, 42, 0.7);
+}
+
+.lm-col-sm {
+  border-color: rgb(55, 93, 157);
+  background-color: rgba(55, 93, 157, 0.7);
+}
+
+.lm-col-md {
+  border-color: rgb(42, 149, 134);
+  background-color: rgba(42, 149, 134, 0.7);
+}
+
+.lm-col-lg {
+  border-color: rgb(217, 105, 25);
+  background-color: rgba(217, 105, 25, 0.7);
+}
+
+.lm-col-xl {
+  border-color: rgb(237, 177, 67);
+  background-color: rgba(237, 177, 67, 0.7);
 }
 
 .lm-remove-col {
@@ -233,6 +256,8 @@ export default {
   text-align: center;
 
   cursor: pointer;
+
+  color: #fff;
 }
 
 .lm-col-header {
@@ -240,7 +265,7 @@ export default {
 
   top: 0;
   right: 25px;
-  left: 10px;
+  left: 0;
 
   padding: 0 10px;
 }
@@ -272,15 +297,30 @@ export default {
 
 .lm-offset {
   position: absolute;
-  top: 10px;
+  top: 25px;
   bottom: 10px;
   left: 2px;
   width: 8px;
 
   cursor: -webkit-grab;
 
-  background-color: rgba(51, 151, 252, 1);
   border-radius: 4px;
+}
+
+.lm-col-sm .lm-offset {
+  background-color: rgb(55, 93, 157);
+}
+
+.lm-col-md .lm-offset {
+  background-color: rgb(42, 149, 134);
+}
+
+.lm-col-lg .lm-offset {
+  background-color: rgb(217, 105, 25);
+}
+
+.lm-col-xl .lm-offset {
+  background-color: rgb(237, 177, 67);
 }
 
 .lm-col-offset {
@@ -293,7 +333,21 @@ export default {
   margin-bottom: 15px;
 
   cursor: -webkit-grab;
+}
 
-  background-color: rgba(51, 151, 252, 0.2);
+.lm-col-offset-sm {
+  background-color: rgba(55, 93, 157, 0.2);
+}
+
+.lm-col-offset-md {
+  background-color: rgba(42, 149, 134, 0.2);
+}
+
+.lm-col-offset-lg {
+  background-color: rgba(217, 105, 25, 0.2);
+}
+
+.lm-col-offset-xl {
+  background-color: rgba(237, 177, 67, 0.2);
 }
 </style>

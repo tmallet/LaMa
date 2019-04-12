@@ -1,7 +1,6 @@
 <template>
   <div class="lm-size-navigator">
     <SizeOption
-      sizeName="Téléphone"
       iconName="mobile-alt"
       :active="size == 'xs'"
       @click.native="changeSize('xs')"
@@ -9,7 +8,6 @@
       size="xs"
     />
     <SizeOption
-      sizeName="Tablette"
       iconName="tablet-alt"
       :active="size == 'sm'"
       @click.native="changeSize('sm')"
@@ -17,7 +15,6 @@
       size="sm"
     />
     <SizeOption
-      sizeName="Petit écran"
       iconName="laptop"
       :active="size == 'md'"
       @click.native="changeSize('md')"
@@ -25,7 +22,6 @@
       size="md"
     />
     <SizeOption
-      sizeName="Grand écran"
       iconName="desktop"
       :active="size == 'lg'"
       @click.native="changeSize('lg')"
@@ -33,7 +29,6 @@
       size="lg"
     />
     <SizeOption
-      sizeName="Très grand écran"
       iconName="tv"
       :active="size == 'xl'"
       @click.native="changeSize('xl')"
@@ -65,6 +60,6 @@ export default {
   left: 0;
   width: 176px;
 
-  background-color: green;
+  background-color: #f3f3f4;
 }
 </style>

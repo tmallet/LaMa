@@ -1,5 +1,5 @@
 <template>
-  <div class="lm-row row">
+  <div :class="'lm-row row lm-row-' + size">
     <div class="lm-row-header">
       <input type="text" v-model="customClassesData" placeholder="Custom classes">
     </div>
@@ -74,10 +74,28 @@ export default {
   margin-bottom: 10px;
   padding-top: 35px;
 
-  border: 2px solid rgb(42, 149, 134);
   border-radius: 5px;
+  border: 2px solid;
+}
 
-  background-color: rgba(42, 149, 134, 0.4);
+.lm-row-xs {
+  border-color: rgb(149, 65, 42);
+}
+
+.lm-row-sm {
+  border-color: rgb(55, 93, 157);
+}
+
+.lm-row-md {
+  border-color: rgb(42, 149, 134);
+}
+
+.lm-row-lg {
+  border-color: rgb(217, 105, 25);
+}
+
+.lm-row-xl {
+  border-color: rgb(237, 177, 67);
 }
 
 .lm-row-header {
@@ -97,8 +115,32 @@ export default {
   background: none;
   border: none;
 
-  color: #fff;
   opacity: 0.8;
+}
+
+.lm-row-xs .lm-row-header input,
+.lm-row-xs .lm-row-header input::placeholder {
+  color: rgb(149, 65, 42);
+}
+
+.lm-row-sm .lm-row-header input,
+.lm-row-sm .lm-row-header input::placeholder {
+  color: rgb(55, 93, 157);
+}
+
+.lm-row-md .lm-row-header input,
+.lm-row-md .lm-row-header input::placeholder {
+  color: rgb(42, 149, 134);
+}
+
+.lm-row-lg .lm-row-header input,
+.lm-row-lg .lm-row-header input::placeholder {
+  color: rgb(217, 105, 25);
+}
+
+.lm-row-xl .lm-row-header input,
+.lm-row-xl .lm-row-header input::placeholder {
+  color: rgb(237, 177, 67);
 }
 
 .lm-row-header input:focus {
@@ -118,5 +160,25 @@ export default {
   text-align: center;
 
   cursor: pointer;
+}
+
+.lm-row-xs .lm-remove-row {
+  color: rgb(149, 65, 42);
+}
+
+.lm-row-sm .lm-remove-row {
+  color: rgb(55, 93, 157);
+}
+
+.lm-row-md .lm-remove-row {
+  color: rgb(42, 149, 134);
+}
+
+.lm-row-lg .lm-remove-row {
+  color: rgb(217, 105, 25);
+}
+
+.lm-row-xl .lm-remove-row {
+  color: rgb(237, 177, 67);
 }
 </style>

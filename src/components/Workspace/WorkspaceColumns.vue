@@ -36,8 +36,6 @@ export default {
   background-color: #fff;
   margin-right: 10px;
   text-align: center;
-
-  box-shadow: 2px 2px 5px grey;
 }
 
 .lm-columns .col:first-child {

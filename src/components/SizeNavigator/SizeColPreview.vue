@@ -25,12 +25,32 @@ export default {
 
 <style>
 .lm-size-col-preview {
-  background-color: red;
-
   float: left;
   height: 20px;
   margin-right: 3px;
   margin-bottom: 3px;
+
+  border-radius: 5px;
+}
+
+.lm-size-xs .lm-size-col-preview {
+  background-color: #95412a;
+}
+
+.lm-size-sm .lm-size-col-preview {
+  background-color: #375d9d;
+}
+
+.lm-size-md .lm-size-col-preview {
+  background-color: rgb(42, 149, 134);
+}
+
+.lm-size-lg .lm-size-col-preview {
+  background-color: #d96919;
+}
+
+.lm-size-xl .lm-size-col-preview {
+  background-color: #edb143;
 }
 
 .lm-size-col-preview:last-child {
@@ -47,6 +67,7 @@ export default {
   display: inline-block;
   height: 20px;
   transition: width 500ms ease;
-  background-color: rgba(82, 42, 42, 0.555);
+  background-color: rgba(95, 95, 95, 0.555);
+  border-radius: 5px 0 0 5px;
 }
 </style>

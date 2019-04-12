@@ -1,10 +1,7 @@
 <template>
-  <div :class="'lm-size' + (active ? ' active' : '') ">
+  <div :class="'lm-size lm-size-' + size + (active ? ' active' : '')">
     <div class="lm-size-header">
-      {{sizeName}}
-      <span class="lg-size-icon">
-        <font-awesome-icon :icon="iconName"/>
-      </span>
+      <font-awesome-icon :icon="iconName" size="lg"/>
     </div>
     <SizeContainer :rows="rows" :size="size"/>
   </div>
@@ -14,7 +11,7 @@
 import SizeContainer from "./SizeContainer";
 
 export default {
-  props: ["sizeName", "iconName", "active", "rows", "size"],
+  props: ["iconName", "active", "rows", "size"],
   components: { SizeContainer }
 };
 </script>
@@ -27,17 +24,66 @@ export default {
   width: 100%;
 
   cursor: pointer;
+
+  border-radius: 15px;
 }
 
-.lm-size.active {
-  background-color: greenyellow;
+.lm-size.active .lm-size-header,
+.lm-size:hover .lm-size-header {
+  color: #fff;
 }
 
 .lm-size-header {
-  padding: 0 15px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5px;
+
+  text-align: center;
 }
 
-.lg-size-icon {
-  float: right;
+.lm-size-xs .lm-size-header {
+  color: rgb(149, 65, 42);
+}
+
+.lm-size-xs.active,
+.lm-size-xs:hover {
+  background-color: rgb(149, 65, 42);
+}
+
+.lm-size-sm .lm-size-header {
+  color: rgb(55, 93, 157);
+}
+
+.lm-size-sm.active,
+.lm-size-sm:hover {
+  background-color: rgb(55, 93, 157);
+}
+
+.lm-size-md .lm-size-header {
+  color: rgb(42, 149, 134);
+}
+
+.lm-size-md.active,
+.lm-size-md:hover {
+  background-color: rgb(42, 149, 134);
+}
+
+.lm-size-lg .lm-size-header {
+  color: rgb(217, 105, 25);
+}
+
+.lm-size-lg.active,
+.lm-size-lg:hover {
+  background-color: rgb(217, 105, 25);
+}
+
+.lm-size-xl .lm-size-header {
+  color: rgb(237, 177, 67);
+}
+
+.lm-size-xl.active,
+.lm-size-xl:hover {
+  background-color: rgb(237, 177, 67);
 }
 </style>
