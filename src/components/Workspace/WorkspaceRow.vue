@@ -77,7 +77,7 @@ export default {
   border: 2px solid rgb(42, 149, 134);
   border-radius: 5px;
 
-  background-color: rgba(42, 149, 134, 0.7);
+  background-color: rgba(42, 149, 134, 0.4);
 }
 
 .lm-row-header {
