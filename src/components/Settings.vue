@@ -8,28 +8,32 @@
 export default {
   name: "Settings",
   props: ["rows"],
-  data() {
-    return {
-      generatedCode: ""
-    };
-  },
-  watch: {
-    rows: {
-      deep: true,
-      handler: function() {
-        let generatedCode = "";
-        for (const row of this.rows) {
-          generatedCode += `<div class="row">\n`;
-          for (const col of row.cols) {
-            console.log(col);
-            generatedCode += `  <div class="${col.sizeClasses.join(
-              " "
-            )} ${col.offsetClasses.join(" ")}"></div>\n`;
-          }
-          generatedCode += `</div>\n`;
+  computed: {
+    generatedCode() {
+      let generatedCode = "";
+      for (const row of this.rows) {
+        generatedCode += `<div class="${this.computeRowClasses(row)}">`;
+        if (row.cols.length !== 0) generatedCode += "\n";
+        for (const col of row.cols) {
+          generatedCode += `  <div class="${this.computeColClasses(
+            col
+          )}"></div>\n`;
         }
-        this.generatedCode = generatedCode;
+        generatedCode += `</div>\n`;
       }
+      return generatedCode;
+    }
+  },
+  methods: {
+    computeRowClasses(row) {
+      return ["row", ...row.customClasses].join(" ");
+    },
+    computeColClasses(col) {
+      return [
+        ...col.sizeClasses,
+        ...col.offsetClasses,
+        ...col.customClasses
+      ].join(" ");
     }
   }
 };
@@ -42,6 +46,6 @@ export default {
   width: 400px;
   right: 0;
 
-  background-color: blue;
+  background-color: #333;
 }
 </style>
