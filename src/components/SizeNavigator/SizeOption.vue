@@ -39,6 +39,10 @@ export default {
   }
 }
 
+.lm-size-xs .lm-size-header {
+  color: rgb(149, 65, 42);
+}
+
 .lm-size-xs.active,
 .lm-size-xs:hover {
   background-color: rgb(149, 65, 42);

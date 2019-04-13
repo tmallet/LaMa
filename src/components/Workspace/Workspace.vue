@@ -26,7 +26,7 @@ export default {
 
 <style lang="scss">
 .lm-workspace {
-  position: absolute;
+  position: absolute !important;
   height: 100%;
   left: 176px;
   right: 400px;

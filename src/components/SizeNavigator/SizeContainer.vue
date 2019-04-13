@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss">
 .lm-size-container {
-  position: absolute;
+  position: absolute !important;
   top: 32px;
   bottom: 0;
   left: 0;
