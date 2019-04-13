@@ -24,12 +24,17 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .lm-workspace {
   position: absolute;
   height: 100%;
   left: 176px;
   right: 400px;
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .lm-container {

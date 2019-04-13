@@ -322,6 +322,10 @@ export default {
   margin-bottom: 15px;
   cursor: -webkit-grab;
 
+  &.easing {
+    transition: width 500ms ease;
+  }
+
   &.lm-col-offset-sm {
     background-color: rgba(55, 93, 157, 0.2);
   }

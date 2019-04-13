@@ -11,6 +11,8 @@ import SizeNavigator from "./SizeNavigator/SizeNavigator";
 import Workspace from "./Workspace/Workspace";
 import Settings from "./Settings";
 
+import "bootstrap/scss/bootstrap.scss";
+
 export default {
   name: "LaMa",
   components: { SizeNavigator, Workspace, Settings },

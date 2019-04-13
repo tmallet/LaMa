@@ -14,9 +14,7 @@ export default {
   margin-left: 20px;
   margin-bottom: 15px;
   width: 45px;
-
   cursor: pointer;
-
   border: 1px dashed black;
 }
 </style>
