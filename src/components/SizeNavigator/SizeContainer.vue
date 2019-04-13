@@ -1,5 +1,5 @@
 <template>
-  <div class="lm-size-container">
+  <VuePerfectScrollbar class="lm-size-container">
     <div class="lm-size-preview-rows" :style="{width: rowWidth + 'px'}">
       <SizeRowPreview
         v-for="row in rows"
@@ -9,16 +9,17 @@
         :rowWidth="rowWidth"
       />
     </div>
-  </div>
+  </VuePerfectScrollbar>
 </template>
 
 <script>
 import SizeRowPreview from "./SizeRowPreview";
+import VuePerfectScrollbar from "vue-perfect-scrollbar";
 
 export default {
   name: "SizeContainer",
   props: ["rows", "size"],
-  components: { SizeRowPreview },
+  components: { SizeRowPreview, VuePerfectScrollbar },
   computed: {
     rowWidth() {
       if (this.size === "xs") return 50.4;
@@ -40,7 +41,6 @@ export default {
   left: 0;
   right: 0;
   padding: 0 15px;
-  overflow-y: auto;
 
   background-color: #fff;
   border-radius: 15px;

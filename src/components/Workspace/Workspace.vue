@@ -1,19 +1,20 @@
 <template>
-  <div class="lm-workspace">
+  <VuePerfectScrollbar class="lm-workspace">
     <div class="lm-container">
       <WorkspaceColumns/>
       <WorkspaceLayout :size="size" @updated="updated"/>
     </div>
-  </div>
+  </VuePerfectScrollbar>
 </template>
 
 <script>
 import WorkspaceColumns from "./WorkspaceColumns";
 import WorkspaceLayout from "./WorkspaceLayout";
+import VuePerfectScrollbar from "vue-perfect-scrollbar";
 
 export default {
   name: "Workspace",
-  components: { WorkspaceColumns, WorkspaceLayout },
+  components: { WorkspaceColumns, WorkspaceLayout, VuePerfectScrollbar },
   props: ["size"],
   methods: {
     updated(rows) {
@@ -29,8 +30,6 @@ export default {
   height: 100%;
   left: 176px;
   right: 400px;
-
-  overflow-y: auto;
 }
 
 .lm-container {

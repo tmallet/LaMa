@@ -3,13 +3,18 @@
     <div class="lm-settings-header">
       <div class="lm-settings-header-tab active">HTML</div>
     </div>
-    <pre v-highlightjs="generatedCode" @click="selectCode"><code class="html"></code></pre>
+    <VuePerfectScrollbar class="lm-settings-container">
+      <pre v-highlightjs="generatedCode" @click="selectCode"><code class="html"></code></pre>
+    </VuePerfectScrollbar>
   </div>
 </template>
 
 <script>
+import VuePerfectScrollbar from "vue-perfect-scrollbar";
+
 export default {
   name: "Settings",
+  components: { VuePerfectScrollbar },
   props: ["size", "rows"],
   computed: {
     generatedCode() {
@@ -62,13 +67,22 @@ export default {
   position: absolute;
   width: 400px;
   right: 0;
+  height: 400px;
+}
+
+.lm-settings-container {
+  height: 100%;
+  background-color: #fff;
+  border-radius: 0 0 15px 15px;
+}
+
+.lm-settings pre {
+  overflow: initial;
 }
 
 .lm-settings .hljs {
-  height: 400px;
-
   background-color: #fff;
-  border-radius: 0 0 15px 15px;
+  overflow: initial;
 }
 
 .lm-settings .hljs .hljs-name {
