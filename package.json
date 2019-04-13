@@ -1,12 +1,32 @@
 {
   "name": "lama",
   "version": "1.0.0",
-  "private": true,
+  "description": "LaMa, for Layout Manager, is a Bootstrap v4 grid builder.",
+  "author": {
+    "name": "Thibaut Mallet",
+    "email": "thibaut3mallet@gmail.com"
+  },
+  "repository": "https://github.com/tmallet/LaMa",
+  "bugs": "https://github.com/tmallet/LaMa/issues",
+  "keywords": [
+    "bootstrap grid builder",
+    "bootstrap",
+    "grid",
+    "builder"
+  ],
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name lama ./src/main.js",
+    "build": "vue-cli-service build",
+    "build:npm": "vue-cli-service build --target lib --name LaMa ./src/components/LaMa.vue",
     "lint": "vue-cli-service lint"
   },
+  "main": "dist/LaMa.umd.js",
+  "unpkg": "dist/LaMa.umd.min.js",
   "devDependencies": {
     "bootstrap": "4.3.1",
     "core-js": "^2.6.5",
