@@ -1,6 +1,6 @@
 {
   "name": "@thimal/lama",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "LaMa, for Layout Manager, is a Bootstrap v4 grid builder.",
   "author": {
     "name": "Thibaut Mallet",
