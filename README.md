@@ -7,7 +7,7 @@ LaMa for Layout Manager is a light [Bootstrap v4](https://getbootstrap.com/) gri
 
 ## 1. Project setup
 ```
-npm install lama
+npm install @thimal/lama
 ```
 
 ## 2. Usage
@@ -17,7 +17,7 @@ npm install lama
 </template>
 
 <script>
-import LaMa from "lama";
+import LaMa from "@thimal/lama";
 
 export default {
   components: { LaMa },
