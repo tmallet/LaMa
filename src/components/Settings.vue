@@ -3,7 +3,7 @@
     <div class="lm-settings-header">
       <div class="lm-settings-header-tab active">HTML</div>
     </div>
-    <pre v-highlightjs="generatedCode"><code class="html"></code></pre>
+    <pre v-highlightjs="generatedCode" @click="selectCode"><code class="html"></code></pre>
   </div>
 </template>
 
@@ -37,6 +37,21 @@ export default {
         ...col.offsetClasses,
         ...col.customClasses
       ].join(" ");
+    },
+    selectCode(event) {
+      const element = event.target;
+      let range;
+      if (window.getSelection && document.createRange) {
+        const sel = window.getSelection();
+        range = document.createRange();
+        range.selectNodeContents(element);
+        sel.removeAllRanges();
+        sel.addRange(range);
+      } else if (document.body.createTextRange) {
+        range = document.body.createTextRange();
+        range.moveToElementText(element);
+        range.select();
+      }
     }
   }
 };
