@@ -76,6 +76,8 @@ export default {
 
   border-radius: 5px;
   border: 2px solid;
+
+  transition: border-color 500ms ease;
 }
 
 .lm-row-xs {
@@ -116,6 +118,8 @@ export default {
   border: none;
 
   opacity: 0.8;
+
+  transition: color 500ms ease;
 }
 
 .lm-row-xs .lm-row-header input,
@@ -160,6 +164,8 @@ export default {
   text-align: center;
 
   cursor: pointer;
+
+  transition: color 500ms ease;
 }
 
 .lm-row-xs .lm-remove-row {

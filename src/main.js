@@ -5,17 +5,13 @@ import { faMobileAlt, faTabletAlt, faLaptop, faDesktop, faTv, faTimes } from '@f
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueHighlightJS from 'vue-highlightjs'
 
-import html from 'highlight.js/lib/languages/htmlbars';
-
-import 'highlight.js/styles/agate.css';
+import 'highlight.js/styles/atom-one-dark.css';
 
 library.add(faMobileAlt, faTabletAlt, faLaptop, faDesktop, faTv, faTimes)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-Vue.use(VueHighlightJS, {
-  languages: { html }
-})
+Vue.use(VueHighlightJS)
 
 Vue.config.productionTip = false
 

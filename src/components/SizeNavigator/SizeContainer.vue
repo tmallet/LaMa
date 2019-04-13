@@ -44,6 +44,13 @@ export default {
 
   background-color: #fff;
   border-radius: 15px;
+
+  transition: border-radius 500ms ease;
+}
+
+.lm-size.active .lm-size-container,
+.lm-size:hover .lm-size-container {
+  border-radius: 0 0 15px 15px;
 }
 
 .lm-size-preview-rows {

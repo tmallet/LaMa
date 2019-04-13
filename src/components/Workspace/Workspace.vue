@@ -31,8 +31,6 @@ export default {
   right: 400px;
 
   overflow-y: auto;
-
-  background-color: #f3f3f4;
 }
 
 .lm-container {

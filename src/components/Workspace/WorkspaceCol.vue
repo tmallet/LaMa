@@ -288,7 +288,7 @@ export default {
 }
 
 .lm-col.easing {
-  transition: width 500ms ease;
+  transition: width, border-color, background-color 500ms ease;
 }
 
 .lm-col-offset.easing {
@@ -305,6 +305,8 @@ export default {
   cursor: -webkit-grab;
 
   border-radius: 4px;
+
+  transition: background-color 500ms ease;
 }
 
 .lm-col-sm .lm-offset {

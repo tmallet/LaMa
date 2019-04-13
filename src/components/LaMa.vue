@@ -2,7 +2,7 @@
   <div id="lama">
     <SizeNavigator :size.sync="size" :rows="rows"/>
     <Workspace :size="size" @updated="workspaceUpdate"/>
-    <Settings :rows="rows"/>
+    <Settings :size="size" :rows="rows"/>
   </div>
 </template>
 
@@ -34,5 +34,6 @@ export default {
   height: 100%;
   left: 0;
   right: 0;
+  background-color: #f3f3f4;
 }
 </style>

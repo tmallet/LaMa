@@ -26,6 +26,7 @@ export default {
   cursor: pointer;
 
   border-radius: 15px;
+  transition: background-color 500ms ease;
 }
 
 .lm-size.active .lm-size-header,
