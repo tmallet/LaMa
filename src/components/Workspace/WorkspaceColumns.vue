@@ -21,7 +21,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .lm-columns {
   position: absolute;
   height: 100%;
@@ -29,25 +29,24 @@ export default {
   margin-left: 0px;
   margin-right: 0px;
   padding: 0 10px;
-}
 
-.lm-columns .col {
-  height: 100%;
-  background-color: #fff;
-  margin-right: 10px;
-  text-align: center;
-}
+  .col {
+    height: 100%;
+    background-color: #fff;
+    margin-right: 10px;
+    text-align: center;
 
-.lm-columns .col:first-child {
-  border-radius: 0 0 0 10px;
-}
+    &:first-child {
+      border-radius: 0 0 0 10px;
+    }
 
-.lm-columns .col:last-child {
-  border-radius: 0 0 10px 0;
-}
+    &:last-child {
+      border-radius: 0 0 10px 0;
+    }
 
-.lm-columns .col:last-child {
-  margin-right: 0;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 </style>
-

@@ -23,51 +23,50 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .lm-size-col-preview {
   float: left;
   height: 20px;
   margin-right: 3px;
   margin-bottom: 3px;
-
   border-radius: 5px;
-}
 
-.lm-size-xs .lm-size-col-preview {
-  background-color: #95412a;
-}
+  &:last-child {
+    margin-right: 0;
+  }
 
-.lm-size-sm .lm-size-col-preview {
-  background-color: #375d9d;
-}
+  .lm-size-col-preview-width {
+    display: inline-block;
+    height: 20px;
+    transition: width 500ms ease;
+  }
 
-.lm-size-md .lm-size-col-preview {
-  background-color: rgb(42, 149, 134);
-}
+  .lm-size-col-preview-offset {
+    display: inline-block;
+    height: 20px;
+    transition: width 500ms ease;
+    background-color: rgba(95, 95, 95, 0.555);
+    border-radius: 5px 0 0 5px;
+  }
 
-.lm-size-lg .lm-size-col-preview {
-  background-color: #d96919;
-}
+  .lm-size-xs & {
+    background-color: #95412a;
+  }
 
-.lm-size-xl .lm-size-col-preview {
-  background-color: #edb143;
-}
+  .lm-size-sm & {
+    background-color: #375d9d;
+  }
 
-.lm-size-col-preview:last-child {
-  margin-right: 0;
-}
+  .lm-size-md & {
+    background-color: rgb(42, 149, 134);
+  }
 
-.lm-size-col-preview-width {
-  display: inline-block;
-  height: 20px;
-  transition: width 500ms ease;
-}
+  .lm-size-lg & {
+    background-color: #d96919;
+  }
 
-.lm-size-col-preview-offset {
-  display: inline-block;
-  height: 20px;
-  transition: width 500ms ease;
-  background-color: rgba(95, 95, 95, 0.555);
-  border-radius: 5px 0 0 5px;
+  .lm-size-xl & {
+    background-color: #edb143;
+  }
 }
 </style>

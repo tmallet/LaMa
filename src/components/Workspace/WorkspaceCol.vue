@@ -206,96 +206,80 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .lm-col {
   display: inline-block;
   position: relative;
-
   height: 150px;
   min-width: 65px;
   margin-bottom: 15px;
   margin-left: -2px;
   margin-right: 2px;
-
   border: 2px solid;
   border-radius: 5px;
-
   cursor: col-resize;
-}
 
-.lm-col-xs {
-  border-color: rgb(149, 65, 42);
-  background-color: rgba(149, 65, 42, 0.7);
-}
+  &.lm-col-xs {
+    border-color: rgb(149, 65, 42);
+    background-color: rgba(149, 65, 42, 0.7);
+  }
 
-.lm-col-sm {
-  border-color: rgb(55, 93, 157);
-  background-color: rgba(55, 93, 157, 0.7);
-}
+  &.lm-col-sm {
+    border-color: rgb(55, 93, 157);
+    background-color: rgba(55, 93, 157, 0.7);
+  }
 
-.lm-col-md {
-  border-color: rgb(42, 149, 134);
-  background-color: rgba(42, 149, 134, 0.7);
-}
+  &.lm-col-md {
+    border-color: rgb(42, 149, 134);
+    background-color: rgba(42, 149, 134, 0.7);
+  }
 
-.lm-col-lg {
-  border-color: rgb(217, 105, 25);
-  background-color: rgba(217, 105, 25, 0.7);
-}
+  &.lm-col-lg {
+    border-color: rgb(217, 105, 25);
+    background-color: rgba(217, 105, 25, 0.7);
+  }
 
-.lm-col-xl {
-  border-color: rgb(237, 177, 67);
-  background-color: rgba(237, 177, 67, 0.7);
+  &.lm-col-xl {
+    border-color: rgb(237, 177, 67);
+    background-color: rgba(237, 177, 67, 0.7);
+  }
+
+  &.easing {
+    transition: width 500ms ease;
+  }
 }
 
 .lm-remove-col {
   position: absolute;
   top: 0;
   right: 0;
-
   width: 25px;
   height: 25px;
-
   text-align: center;
-
   cursor: pointer;
-
   color: #fff;
 }
 
 .lm-col-header {
   position: absolute;
-
   top: 0;
   right: 25px;
   left: 0;
-
   padding: 0 10px;
-}
 
-.lm-col-header input,
-.lm-col-header input::placeholder {
-  width: 100%;
+  & input,
+  & input::placeholder {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    opacity: 0.8;
+  }
 
-  background: none;
-  border: none;
-
-  color: #fff;
-  opacity: 0.8;
-}
-
-.lm-col-header input:focus {
-  outline: none;
-
-  opacity: inherit;
-}
-
-.lm-col.easing {
-  transition: width 500ms ease;
-}
-
-.lm-col-offset.easing {
-  transition: width 500ms ease;
+  & input:focus {
+    outline: none;
+    opacity: inherit;
+  }
 }
 
 .lm-offset {
@@ -304,55 +288,54 @@ export default {
   bottom: 10px;
   left: 2px;
   width: 8px;
-
   cursor: -webkit-grab;
-
   border-radius: 4px;
-
   transition: background-color 500ms ease;
-}
 
-.lm-col-sm .lm-offset {
-  background-color: rgb(55, 93, 157);
-}
+  &.easing {
+    transition: width 500ms ease;
+  }
 
-.lm-col-md .lm-offset {
-  background-color: rgb(42, 149, 134);
-}
+  .lm-col-sm & {
+    background-color: rgb(55, 93, 157);
+  }
 
-.lm-col-lg .lm-offset {
-  background-color: rgb(217, 105, 25);
-}
+  .lm-col-md & {
+    background-color: rgb(42, 149, 134);
+  }
 
-.lm-col-xl .lm-offset {
-  background-color: rgb(237, 177, 67);
+  .lm-col-lg & {
+    background-color: rgb(217, 105, 25);
+  }
+
+  .lm-col-xl & {
+    background-color: rgb(237, 177, 67);
+  }
 }
 
 .lm-col-offset {
   display: inline-block;
   position: relative;
-
   height: 150px;
   margin-left: 8px;
   margin-right: 2px;
   margin-bottom: 15px;
-
   cursor: -webkit-grab;
-}
 
-.lm-col-offset-sm {
-  background-color: rgba(55, 93, 157, 0.2);
-}
+  &.lm-col-offset-sm {
+    background-color: rgba(55, 93, 157, 0.2);
+  }
 
-.lm-col-offset-md {
-  background-color: rgba(42, 149, 134, 0.2);
-}
+  &.lm-col-offset-md {
+    background-color: rgba(42, 149, 134, 0.2);
+  }
 
-.lm-col-offset-lg {
-  background-color: rgba(217, 105, 25, 0.2);
-}
+  &.lm-col-offset-lg {
+    background-color: rgba(217, 105, 25, 0.2);
+  }
 
-.lm-col-offset-xl {
-  background-color: rgba(237, 177, 67, 0.2);
+  &.lm-col-offset-xl {
+    background-color: rgba(237, 177, 67, 0.2);
+  }
 }
 </style>

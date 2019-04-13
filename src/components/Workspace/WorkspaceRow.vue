@@ -67,126 +67,123 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .lm-row {
   position: relative;
-
   width: 910px;
   margin: 0;
   margin-bottom: 10px;
   padding-top: 35px;
-
   border-radius: 5px;
   border: 2px solid;
-
   transition: border-color 500ms ease;
-}
 
-.lm-row-xs {
-  border-color: rgb(149, 65, 42);
-}
+  &.lm-row-xs {
+    border-color: rgb(149, 65, 42);
+  }
 
-.lm-row-sm {
-  border-color: rgb(55, 93, 157);
-}
+  &.lm-row-sm {
+    border-color: rgb(55, 93, 157);
+  }
 
-.lm-row-md {
-  border-color: rgb(42, 149, 134);
-}
+  &.lm-row-md {
+    border-color: rgb(42, 149, 134);
+  }
 
-.lm-row-lg {
-  border-color: rgb(217, 105, 25);
-}
+  &.lm-row-lg {
+    border-color: rgb(217, 105, 25);
+  }
 
-.lm-row-xl {
-  border-color: rgb(237, 177, 67);
+  &.lm-row-xl {
+    border-color: rgb(237, 177, 67);
+  }
 }
 
 .lm-row-header {
   position: absolute;
-
   top: 0;
   right: 25px;
   left: 10px;
-
   padding: 0 10px;
-}
 
-.lm-row-header input,
-.lm-row-header input::placeholder {
-  width: 100%;
+  input,
+  input::placeholder {
+    width: 100%;
+    background: none;
+    border: none;
+    opacity: 0.8;
+    transition: color 500ms ease;
+  }
 
-  background: none;
-  border: none;
+  .lm-row-xs & {
+    input,
+    input::placeholder {
+      color: rgb(149, 65, 42);
+    }
+  }
 
-  opacity: 0.8;
+  .lm-row-sm & {
+    input,
+    input::placeholder {
+      color: rgb(55, 93, 157);
+    }
+  }
 
-  transition: color 500ms ease;
-}
+  .lm-row-md & {
+    input,
+    input::placeholder {
+      color: rgb(42, 149, 134);
+    }
+  }
 
-.lm-row-xs .lm-row-header input,
-.lm-row-xs .lm-row-header input::placeholder {
-  color: rgb(149, 65, 42);
-}
+  .lm-row-lg & {
+    input,
+    input::placeholder {
+      color: rgb(217, 105, 25);
+    }
+  }
 
-.lm-row-sm .lm-row-header input,
-.lm-row-sm .lm-row-header input::placeholder {
-  color: rgb(55, 93, 157);
-}
+  .lm-row-xl & {
+    input,
+    input::placeholder {
+      color: rgb(237, 177, 67);
+    }
+  }
 
-.lm-row-md .lm-row-header input,
-.lm-row-md .lm-row-header input::placeholder {
-  color: rgb(42, 149, 134);
-}
-
-.lm-row-lg .lm-row-header input,
-.lm-row-lg .lm-row-header input::placeholder {
-  color: rgb(217, 105, 25);
-}
-
-.lm-row-xl .lm-row-header input,
-.lm-row-xl .lm-row-header input::placeholder {
-  color: rgb(237, 177, 67);
-}
-
-.lm-row-header input:focus {
-  outline: none;
-
-  opacity: inherit;
+  & input:focus {
+    outline: none;
+    opacity: inherit;
+  }
 }
 
 .lm-remove-row {
   position: absolute;
   top: 0;
   right: 10px;
-
   width: 25px;
   height: 25px;
-
   text-align: center;
-
   cursor: pointer;
-
   transition: color 500ms ease;
-}
 
-.lm-row-xs .lm-remove-row {
-  color: rgb(149, 65, 42);
-}
+  .lm-row-xs & {
+    color: rgb(149, 65, 42);
+  }
 
-.lm-row-sm .lm-remove-row {
-  color: rgb(55, 93, 157);
-}
+  .lm-row-sm & {
+    color: rgb(55, 93, 157);
+  }
 
-.lm-row-md .lm-remove-row {
-  color: rgb(42, 149, 134);
-}
+  .lm-row-md & {
+    color: rgb(42, 149, 134);
+  }
 
-.lm-row-lg .lm-remove-row {
-  color: rgb(217, 105, 25);
-}
+  .lm-row-lg & {
+    color: rgb(217, 105, 25);
+  }
 
-.lm-row-xl .lm-remove-row {
-  color: rgb(237, 177, 67);
+  .lm-row-xl & {
+    color: rgb(237, 177, 67);
+  }
 }
 </style>

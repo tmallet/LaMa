@@ -16,35 +16,27 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .lm-size {
   position: relative;
-
   height: 20%;
   width: 100%;
-
   cursor: pointer;
-
   border-radius: 15px;
   transition: background-color 500ms ease;
-}
 
-.lm-size.active .lm-size-header,
-.lm-size:hover .lm-size-header {
-  color: #fff;
-}
+  .lm-size-header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 5px;
+    text-align: center;
+  }
 
-.lm-size-header {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 5px;
-
-  text-align: center;
-}
-
-.lm-size-xs .lm-size-header {
-  color: rgb(149, 65, 42);
+  &.active .lm-size-header,
+  &:hover .lm-size-header {
+    color: #fff;
+  }
 }
 
 .lm-size-xs.active,

@@ -33,7 +33,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .lm-size-container {
   position: absolute;
   top: 32px;
@@ -41,22 +41,20 @@ export default {
   left: 0;
   right: 0;
   padding: 0 15px;
-
   background-color: #fff;
   border-radius: 15px;
-
   transition: border-radius 500ms ease;
-}
 
-.lm-size.active .lm-size-container,
-.lm-size:hover .lm-size-container {
-  border-radius: 0 0 15px 15px;
-}
+  .lm-size.active &,
+  .lm-size:hover & {
+    border-radius: 0 0 15px 15px;
+  }
 
-.lm-size-preview-rows {
-  padding-top: 8px;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: auto;
+  .lm-size-preview-rows {
+    padding-top: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+  }
 }
 </style>
