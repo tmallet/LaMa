@@ -288,7 +288,7 @@ export default {
 }
 
 .lm-col.easing {
-  transition: width, border-color, background-color 500ms ease;
+  transition: width 500ms ease;
 }
 
 .lm-col-offset.easing {
