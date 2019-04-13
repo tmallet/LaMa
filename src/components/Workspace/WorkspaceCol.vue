@@ -70,7 +70,10 @@ export default {
       this.prevWidth = this.width;
     },
     customClasses() {
-      this.col.customClasses = [...this.customClasses.trim().split(" ")];
+      this.col.customClasses =
+        this.customClasses === ""
+          ? []
+          : [...this.customClasses.trim().split(" ")];
     }
   },
   methods: {

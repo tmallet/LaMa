@@ -27,9 +27,11 @@ export default {
   },
   watch: {
     customClassesData() {
-      this.$emit("update:customClasses", [
-        ...this.customClassesData.trim().split(" ")
-      ]);
+      const customClasses =
+        this.customClassesData === ""
+          ? []
+          : [...this.customClassesData.trim().split(" ")];
+      this.$emit("update:customClasses", customClasses);
     }
   },
   methods: {
