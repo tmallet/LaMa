@@ -10,7 +10,12 @@
 </template>
 
 <script>
+import Vue from "vue";
 import VuePerfectScrollbar from "vue-perfect-scrollbar";
+import VueHighlightJS from "vue-highlightjs/";
+import "highlight.js/styles/atom-one-dark.css";
+
+Vue.use(VueHighlightJS);
 
 export default {
   name: "Settings",

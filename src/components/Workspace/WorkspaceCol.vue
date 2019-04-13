@@ -14,7 +14,7 @@
         <input type="text" v-model="customClasses" placeholder="Col classes">
       </div>
       <div class="lm-remove-col" @click.left="removeCol">
-        <font-awesome-icon icon="times"/>
+        <FontAwesomeIcon icon="times"/>
       </div>
       <div v-if="size !== 'xs'" class="lm-offset" @mousedown.left="drag"></div>
     </div>
@@ -22,10 +22,14 @@
 </template>
 
 <script>
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
 const sizes = ["xs", "sm", "md", "lg", "xl"];
 const offsets = ["sm", "md", "lg", "xl"];
+
 export default {
   name: "WorkspaceCol",
+  components: { FontAwesomeIcon },
   props: ["col", "size"],
   data() {
     return {

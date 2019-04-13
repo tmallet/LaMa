@@ -4,7 +4,7 @@
       <input type="text" v-model="customClassesData" placeholder="Row classes">
     </div>
     <div class="lm-remove-row" @click="removeRow">
-      <font-awesome-icon icon="times"/>
+      <FontAwesomeIcon icon="times"/>
     </div>
     <WorkspaceCol v-for="col in cols" :key="col.id" :col="col" @removed="removeCol" :size="size"/>
     <WorkspaceNewCol @click.native="addCol"/>
@@ -14,11 +14,12 @@
 <script>
 import WorkspaceNewCol from "./WorkspaceNewCol";
 import WorkspaceCol from "./WorkspaceCol";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
   name: "WorkspaceRow",
   props: ["cols", "rowId", "size", "customClasses"],
-  components: { WorkspaceNewCol, WorkspaceCol },
+  components: { WorkspaceNewCol, WorkspaceCol, FontAwesomeIcon },
   data() {
     return {
       lastIndex: -1,

@@ -1,7 +1,7 @@
 <template>
   <div :class="'lm-size lm-size-' + size + (active ? ' active' : '')">
     <div class="lm-size-header">
-      <font-awesome-icon :icon="iconName" size="lg"/>
+      <FontAwesomeIcon :icon="iconName" size="lg"/>
     </div>
     <SizeContainer :rows="rows" :size="size"/>
   </div>
@@ -9,10 +9,11 @@
 
 <script>
 import SizeContainer from "./SizeContainer";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
   props: ["iconName", "active", "rows", "size"],
-  components: { SizeContainer }
+  components: { SizeContainer, FontAwesomeIcon }
 };
 </script>
 
