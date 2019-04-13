@@ -1,7 +1,7 @@
 <template>
   <div :class="'lm-row row lm-row-' + size">
     <div class="lm-row-header">
-      <input type="text" v-model="customClassesData" placeholder="Custom classes">
+      <input type="text" v-model="customClassesData" placeholder="Row classes">
     </div>
     <div class="lm-remove-row" @click="removeRow">
       <font-awesome-icon icon="times"/>
