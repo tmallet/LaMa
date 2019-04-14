@@ -23,6 +23,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:lib": "vue-cli-service build --target lib --name LaMa ./src/main.js",
     "build:npm": "vue-cli-service build --target lib --name LaMa ./src/components/LaMa.vue",
     "lint": "vue-cli-service lint"
   },

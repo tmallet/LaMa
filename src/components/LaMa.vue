@@ -1,5 +1,5 @@
 <template>
-  <div id="lama">
+  <div id="lama" class="bootstrap-lama">
     <SizeNavigator :size.sync="size" :rows="rows"/>
     <Workspace :size="size" @updated="workspaceUpdate"/>
     <Settings :size="size" :rows="rows"/>
@@ -16,7 +16,7 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 
 library.add(fas);
 
-import "bootstrap/scss/bootstrap.scss";
+import "../scss/lama.scss";
 
 export default {
   name: "LaMa",
