@@ -30,16 +30,12 @@ export default {
   height: 100%;
   left: 176px;
   right: 400px;
-
-  .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
 }
 
 .lm-container {
   position: relative;
   width: 910px;
   margin: auto;
+  padding-left: 15px;
 }
 </style>

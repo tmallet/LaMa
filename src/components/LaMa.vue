@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import "../scss/lama.scss";
+
 import SizeNavigator from "./SizeNavigator/SizeNavigator";
 import Workspace from "./Workspace/Workspace";
 import Settings from "./Settings";
@@ -15,8 +17,6 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 
 library.add(fas);
-
-import "../scss/lama.scss";
 
 export default {
   name: "LaMa",
